@@ -22,7 +22,7 @@ export default class ViewTransformer extends React.Component {
     super(props);
     this.state = {
       //transform state
-      scale: 1,
+      scale: this.props.minScale,
       translateX: 0,
       translateY: 0,
 
@@ -379,7 +379,7 @@ export default class ViewTransformer extends React.Component {
 
   animateBounce() {
     let curScale = this.state.scale;
-    let minScale = 1;
+    let minScale = this.props.minScale;
     let maxScale = this.props.maxScale;
     let scaleBy = 1;
     if (curScale > maxScale) {
@@ -442,6 +442,7 @@ ViewTransformer.propTypes = {
   maxOverScrollDistance: PropTypes.number,
 
   maxScale: PropTypes.number,
+  minScale: PropTypes.number,
   contentAspectRatio: PropTypes.number,
 
   /**
@@ -461,5 +462,6 @@ ViewTransformer.defaultProps = {
   enableTranslate: true,
   enableTransform: true,
   maxScale: 1,
+  minScale: 1,
   enableResistance: false
 };
