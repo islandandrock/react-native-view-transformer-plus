@@ -352,7 +352,7 @@ export default class ViewTransformer extends React.Component {
 
     let fromRect = this.transformedContentRect();
     if (fromRect.equals(targetRect)) {
-      console.log('animate...equal rect, skip animation');
+      //console.log('animate...equal rect, skip animation');
       return;
     }
 
