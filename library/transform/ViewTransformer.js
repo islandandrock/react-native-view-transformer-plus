@@ -80,7 +80,7 @@ export default class ViewTransformer extends React.Component {
     return new Transform(this.state.scale, this.state.translateX, this.state.translateY);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.gestureResponder = createResponder({
       onStartShouldSetResponder: (evt, gestureState) => true,
       onMoveShouldSetResponderCapture: (evt, gestureState) => true,
@@ -373,6 +373,7 @@ export default class ViewTransformer extends React.Component {
     Animated.timing(this.state.animator, {
       toValue: 1,
       duration: duration,
+      useNativeDriver: false,
       easing: Easing.inOut(Easing.ease)
     }).start();
   }
